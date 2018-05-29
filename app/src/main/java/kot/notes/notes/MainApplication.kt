@@ -37,11 +37,7 @@ class MainApplication : Application() {
     }
 
     override fun onCreate() {
-        super.onCreate()
-        // initialize for any
-
-        // Use ApplicationContext.
-        // example: SharedPreferences etc...
+        super.onCreate()..
         createMainComponent()
         boxStore = MyObjectBox.builder().androidContext(applicationContext).build()
     }
