@@ -37,7 +37,7 @@ class MainApplication : Application() {
     }
 
     override fun onCreate() {
-        super.onCreate()..
+        super.onCreate()
         createMainComponent()
         boxStore = MyObjectBox.builder().androidContext(applicationContext).build()
     }
