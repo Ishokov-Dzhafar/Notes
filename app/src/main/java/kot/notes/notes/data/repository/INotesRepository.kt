@@ -15,4 +15,6 @@ interface INotesRepository {
     fun addNote(note: NoteEntity): Observable<Long>
 
     fun deleteNote(note: NoteEntity): Observable<Unit>
+
+    fun deleteNotes(noteIds: List<NoteEntity>): Observable<Unit>
 }

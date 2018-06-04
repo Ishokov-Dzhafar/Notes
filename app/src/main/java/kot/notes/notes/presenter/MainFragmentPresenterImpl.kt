@@ -52,9 +52,29 @@ class MainFragmentPresenterImpl: Presenter<MainFragmentPresenterImpl.View> {
         })
     }
 
+    fun deletedNotes(list: List<NoteEntity>) {
+        interactor.deletedNotes(object: DisposableObserver<Unit>() {
+
+            override fun onComplete() {
+                getAllNotes()
+            }
+
+            override fun onError(e: Throwable) {
+
+            }
+
+            override fun onNext(t: Unit) {
+
+            }
+
+        }, list)
+    }
+
 
      interface View: Presenter.View {
-        fun showToast(string: String)
-        fun onSuccessNotes(list: List<NoteEntity>)
+         fun showToast(string: String)
+         fun onSuccessNotes(list: List<NoteEntity>)
+         fun showSelectedLayout()
+         fun hideSelectedLayout()
     }
 }

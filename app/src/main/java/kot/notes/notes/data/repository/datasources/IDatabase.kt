@@ -18,4 +18,6 @@ interface IDatabase {
 
     fun getNoteEntityById(id_note: Long): Observable<NoteEntity>
 
+    fun deleteNotes(notes: List<NoteEntity>): Observable<Unit>
+
 }

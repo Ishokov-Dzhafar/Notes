@@ -34,4 +34,7 @@ class NotesRepository: INotesRepository {
         return objectBoxDB.getAllNotesEntity()
     }
 
+    override fun deleteNotes(noteIds: List<NoteEntity>): Observable<Unit> {
+        return objectBoxDB.deleteNotes(noteIds)
+    }
 }

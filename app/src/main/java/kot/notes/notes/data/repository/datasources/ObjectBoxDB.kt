@@ -36,4 +36,8 @@ class ObjectBoxDB: IDatabase {
         return Observable.just(noteBox.get(id_note))
     }
 
+    override fun deleteNotes(notes: List<NoteEntity>): Observable<Unit> {
+        return Observable.just(noteBox.remove(notes))
+    }
+
 }

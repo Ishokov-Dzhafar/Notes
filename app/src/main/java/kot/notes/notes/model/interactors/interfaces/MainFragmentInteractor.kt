@@ -12,4 +12,6 @@ interface MainFragmentInteractor {
     fun addNote(disposable: DisposableObserver<Long>, note: NoteEntity)
 
     fun getAllNotes(disposable: DisposableObserver<List<NoteEntity>>)
+
+    fun deletedNotes(disposable: DisposableObserver<Unit>, list: List<NoteEntity>)
 }
