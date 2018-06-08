@@ -1,9 +1,11 @@
 package kot.notes.notes.view.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import butterknife.BindView
@@ -66,6 +68,17 @@ class AddNotesFragment: Fragment(), AddNotesFragmentPresenterImpl.View {
         ButterKnife.bind(this, view)
         if (note.date != null) notesET.setText(note.text)
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        notesET.requestFocus()
+        openKeyboard(notesET)
+    }
+
+    fun openKeyboard(view: View) {
+        val inputMethodManager = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.showSoftInput( view, InputMethodManager.SHOW_IMPLICIT)
     }
 
     fun saveNote() {
