@@ -1,9 +1,12 @@
 package kot.notes.notes.data.repository
 
 import io.reactivex.Observable
+import io.reactivex.functions.Function
 import kot.notes.notes.data.entity.NoteEntity
+import kot.notes.notes.data.entity.SortNoteByDate
 import kot.notes.notes.data.repository.datasources.IDatabase
 import kot.notes.notes.data.repository.datasources.ObjectBoxDB
+import java.util.*
 import javax.inject.Inject
 
 /**
@@ -31,7 +34,16 @@ class NotesRepository: INotesRepository {
     }
 
     override fun getAllNotes(): Observable<List<NoteEntity>> {
+
         return objectBoxDB.getAllNotesEntity()
+                .map(object : Function<List<NoteEntity>, List<NoteEntity>> {
+                    override fun apply(t: List<NoteEntity>): List<NoteEntity> {
+                        val sortByDate = SortNoteByDate()
+                        Collections.sort(t, sortByDate)
+                        return t
+                    }
+                })
+
     }
 
     override fun deleteNotes(noteIds: List<NoteEntity>): Observable<Unit> {

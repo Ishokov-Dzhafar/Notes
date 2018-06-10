@@ -1,7 +1,5 @@
 package kot.notes.notes.presenter
 
-import android.graphics.Bitmap
-import android.util.Log
 import io.reactivex.observers.DisposableObserver
 import kot.notes.notes.data.entity.NoteEntity
 import kot.notes.notes.model.interactors.MainFragmentInteractorImpl

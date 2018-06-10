@@ -16,7 +16,7 @@ abstract class UseCase<T> {
 
     constructor(executorThread: Scheduler, uiThread: Scheduler) {
         this.executorThread = executorThread
-        this.uiThread = uiThread;
+        this.uiThread = uiThread
         compositeDisposable = CompositeDisposable()
     }
 
